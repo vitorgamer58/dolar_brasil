@@ -8,12 +8,9 @@ defmodule DolarBrasil.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Starts a worker by calling: DolarBrasil.Worker.start_link(arg)
-      # {DolarBrasil.Worker, arg}
+      {Bandit, plug: DolarBrasil.Router, scheme: :http, port: 8000}
     ]
 
-    # See https://hexdocs.pm/elixir/Supervisor.html
-    # for other strategies and supported options
     opts = [strategy: :one_for_one, name: DolarBrasil.Supervisor]
     Supervisor.start_link(children, opts)
   end
