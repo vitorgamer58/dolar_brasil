@@ -20,7 +20,8 @@ defmodule DolarBrasil.MixProject do
 
   defp deps do
     [
-      {:bandit, "~> 1.0"}
+      {:bandit, "~> 1.0"},
+      {:httpoison, "~> 2.0"}
     ]
   end
 end
