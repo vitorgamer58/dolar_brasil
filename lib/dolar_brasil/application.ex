@@ -8,7 +8,8 @@ defmodule DolarBrasil.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      {Bandit, plug: DolarBrasil.Router, scheme: :http, port: 8000}
+      {Bandit, plug: DolarBrasil.Router, scheme: :http, port: 8000},
+      {Cachex, name: :dolar_brasil_cache}
     ]
 
     opts = [strategy: :one_for_one, name: DolarBrasil.Supervisor]
